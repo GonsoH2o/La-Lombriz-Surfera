@@ -3,17 +3,17 @@
 #include "DHT.h"               //Librería de los sensores DHT11, DHT22, etc. 
  
 // Parámetros del conexión con thinger.io
-#define usuario "Gonso"
-#define device_Id "DHT11"
-#define device_credentials "solete#17"
+#define usuario "thinger_user"
+#define device_Id "thinger_device"
+#define device_credentials "thinger_device_pass"
  
 ThingerESP8266 thing(usuario, device_Id, device_credentials);
  
 // Parámetros de conexión WiFi
-const char WiFi_ssid[]="vodafoneC8E0";            //Nombre de red
-const char WiFi_password[]="Q8REWQLB7HRFE6";  //Clave de red
-//const char WiFi_ssid[]="G";            //Nombre de red
-//const char WiFi_password[]="12345678";  //Clave de red
+const char WiFi_ssid[]="ssid_name";            //Nombre de red
+const char WiFi_password[]="wifi_password";  //Clave de red
+//const char WiFi_ssid[]="******";            //Nombre de red
+//const char WiFi_password[]="*******";  //Clave de red
 // Parámetros del DHT 
 #define DHTPIN D4     //Pin de conexión - GPIO02
 #define DHTTYPE DHT11   //Modelo
@@ -50,27 +50,29 @@ DHT dht(DHTPIN, DHTTYPE);
 unsigned long lastCheck = 0;
 void loop() {
 
-/* 
+
   thing.handle();
   unsigned long currentTs = millis();
-    if(currentTs-lastCheck>=60*60*1000){
-  if(dht.readTemperature()<5){
-            thing.call_endpoint("temp_low");
-            delay(3600000);
-        }
-    }
-  if(currentTs-lastCheck>=60*60*1000){
-  if(dht.readTemperature()>25){
-            thing.call_endpoint("temp_high");
-            delay(3600000);
-        }
-    }  
+ 
+ /* La parte de Avisos da error y finalizala conexión con Thinger.io -- Revisar */
+ //   if(currentTs-lastCheck>=60*60*1000){
+ // if(dht.readTemperature()<5){
+ //           thing.call_endpoint("temp_low");
+ //           delay(3600000);
+ //       }
+ //   }
+ // if(currentTs-lastCheck>=60*60*1000){
+ // if(dht.readTemperature()>25){
+ //           thing.call_endpoint("temp_high");
+ //           delay(3600000);
+ //       }
+ //   }  
 //  if(currentTs-lastCheck>=60*60*1000){
 //  if(dht.readHumidity()<70){
 //            thing.call_endpoint("hum_low");
 //            delay(3600000);
 //        }
 //    }
-*/ 
+ 
     
 }
